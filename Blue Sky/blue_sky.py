@@ -3,6 +3,7 @@ import pygame
 import sys
 
 from settings import Settings
+from character import Character
 
 class BlueSky:
 
@@ -15,6 +16,7 @@ class BlueSky:
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Blue Sky")
         self.bg_color = (196, 217, 255)
+        self.character = Character(self)
 
     def run_display(self):
         while True:
@@ -32,6 +34,7 @@ class BlueSky:
     def _update_screen(self):
         """Update images on the screem, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
+        self.character.blitme()
         pygame.display.flip()
 
 
